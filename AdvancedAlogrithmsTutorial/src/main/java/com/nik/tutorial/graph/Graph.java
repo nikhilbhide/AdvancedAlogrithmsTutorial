@@ -1,5 +1,6 @@
 package com.nik.tutorial.graph;
 
+import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
@@ -22,7 +23,7 @@ public class Graph {
 		vertexMap = new ConcurrentHashMap();
 	}
 
-	
+
 	/**
 	 * Populates the graph based on details of vertices and edges
 	 * 
@@ -32,7 +33,7 @@ public class Graph {
 	public void createGraph(ConcurrentHashMap<String,Vertex> vertexMap, ConcurrentHashMap<String, String[]> edgeMap) {
 		this.edgeMap = edgeMap;
 		this.vertexMap = vertexMap;
-		
+
 		edgeMap.forEach((k,v)-> {
 			Vertex vertex = vertexMap.get(k);
 			for(String vertexName:v) {
@@ -58,7 +59,7 @@ public class Graph {
 				queue.add(vertex);
 			}
 		}
-		
+
 		if(!queue.isEmpty()) {
 			traverseBFS(queue, result);
 		}
@@ -78,6 +79,41 @@ public class Graph {
 			queue.add(vertex);
 			result.add(vertex.getName());
 			traverseBFS(queue, result);
+		}
+		return result;
+	}
+
+	/**
+	 * Traverses graph in depth first order. 
+	 * 
+	 * @param currentVertex The current vertex of a traversal
+	 * @param visited The intermediate object to keep track of visited nodes. This is to avoid cyclic graph case
+	 * @param result The sequential hash set that contains the result of the nodes visited
+	 */
+	public void traverseDFS(Vertex currentVertex, LinkedHashSet<String> visited, LinkedHashSet<String> result) {
+		List<Vertex> neighboringVertices = currentVertex.getVertices();
+		visited.add(currentVertex.getName());
+		
+		for(Vertex vertex:neighboringVertices) {
+			if(!visited.contains(vertex.getName())) {
+				traverseDFS(vertex,visited,result);
+			}
+		}
+		result.add(currentVertex.getName());
+	}
+
+	/**
+	 * Traverses graph in breadth first order. 
+	 * 
+	 * @param startVertex The starting vertex of a traversal
+	 */
+	public LinkedHashSet <String> traverseDFS(String startVertex) {
+		Vertex vertex = vertexMap.get(startVertex);
+		LinkedHashSet <String> result = new LinkedHashSet ();
+		LinkedHashSet <String> visited = new LinkedHashSet ();
+
+		if(vertex!=null) {
+			traverseDFS(vertex,visited,result);
 		}
 		return result;
 	}
