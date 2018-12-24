@@ -79,7 +79,11 @@ public class GraphUtility {
 
 	/**
 	 * Parse the provided structure to verify whether the structure conforms to the maze format
-	 *  
+	 * Start point is 2 
+	 * End point is 3
+	 * Door close is represented by 0
+	 * Door open is represented by 1
+	 * 
 	 * @param elements The input structure
 	 * 
 	 * @return The colunmnary array against a specific row
@@ -132,8 +136,9 @@ public class GraphUtility {
 
 
 	/**
-	 * Retreive starting position in the maze
-	 * 
+	 * Retrieve starting position in the maze
+	 * Start point is denoted by 2 
+
 	 * @param maze 2-Dimensional array that represents the maze
 	 * 
 	 * @return Position array in which row is stored at index 0 and column is stored at index 1
