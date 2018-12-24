@@ -1,5 +1,6 @@
 package com.nik.test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
@@ -10,6 +11,8 @@ import org.junit.Test;
 import com.nik.tutorial.graph.Graph;
 import com.nik.tutorial.graph.GraphUtility;
 import com.nik.tutorial.graph.Vertex;
+
+import sun.security.util.PropertyExpander.ExpandException;
 
 public class GraphTraversalTest {
 	private Graph graphInstance;
@@ -230,4 +233,37 @@ public class GraphTraversalTest {
 		List<String> verticesList = Arrays.asList(vertices);
 		Assert.assertTrue(graphInstance.isCyclic());
 	}
+	
+	@Test
+	public void testMazePopulationSuccess() {
+		ArrayList<String> lines = new ArrayList<String>();
+		lines.add("0 0 0 0 0");
+		lines.add("0 2 1 1 1");
+		lines.add("1 0 1 0 0");
+		lines.add("0 1 1 1 1");
+		lines.add("1 0 1 0 3");
+		
+		
+		int maze[][] = GraphUtility.populateMazeRunner(lines);
+		int[][] expectedMaze = {{0, 0, 0, 0, 0}, {0, 2, 1, 1, 1}, {1, 0, 1, 0, 0}, {0, 1, 1, 1, 1}, {1, 0, 1, 0, 3}};
+		Assert.assertArrayEquals(expectedMaze, maze);
+	}
+	
+	@Test
+	public void testMazeTraversalSuccess() {
+		ArrayList<String> lines = new ArrayList<String>();
+		lines.add("0 0 0");
+		lines.add("0 2 1");
+		lines.add("1 0 3");
+		
+		
+		int maze[][] = GraphUtility.populateMazeRunner(lines);
+		ArrayList<String> result = graphInstance.traverseMaze(maze);
+		ArrayList<String> expectedMazeTraversal = new ArrayList();
+		expectedMazeTraversal.add("1->1");
+		expectedMazeTraversal.add("1->2");
+		expectedMazeTraversal.add("2->2");
+
+		Assert.assertArrayEquals(expectedMazeTraversal.toArray(), result.toArray());
+	}	
 }
