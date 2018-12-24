@@ -159,4 +159,75 @@ public class GraphTraversalTest {
 		Assert.assertArrayEquals(vertices, graphInstance.traverseDFS("A").toArray());
 	}
 	
+	@Test
+	public void testIsCyclicSimpleSuccess() {
+		String[] verticeValues = {"A","B","C"};
+		String[] edgesVertexA = {"B"};
+		String[] edgesVertexB = {"C"};
+		String[] edgesVertexC = {"A"};
+		
+		ConcurrentHashMap<String,String[]> edgeMap = (ConcurrentHashMap<String, String[]>) new ConcurrentHashMap();
+		edgeMap.put("A", edgesVertexA);
+		edgeMap.put("B",edgesVertexB);
+		edgeMap.put("C",edgesVertexC);
+		ConcurrentHashMap<String, Vertex> vertexMap = GraphUtility.getVertexMap(verticeValues);
+		graphInstance.createGraph(vertexMap, edgeMap);
+		String[] vertices = {"A","B","C"};
+		List<String> verticesList = Arrays.asList(vertices);
+		Assert.assertTrue(graphInstance.isCyclic());
+	}
+	
+	@Test
+	public void testIsCyclicComplexSuccess() {
+		String[] verticeValues = {"A","B","C","D","E","F","G"};
+		String[] edgesVertexA = {"B"};
+		String[] edgesVertexB = {"C"};
+		String[] edgesVertexC = {"D"};
+		String[] edgesVertexD = {"E","B"};
+		String[] edgesVertexE = {"F",};
+		String[] edgesVertexF = {"G"};
+		String[] edgesVertexG = {"A"};
+		
+		ConcurrentHashMap<String,String[]> edgeMap = (ConcurrentHashMap<String, String[]>) new ConcurrentHashMap();
+		edgeMap.put("A", edgesVertexA);
+		edgeMap.put("B",edgesVertexB);
+		edgeMap.put("C",edgesVertexC);
+		edgeMap.put("D",edgesVertexD);
+		edgeMap.put("E",edgesVertexE);
+		edgeMap.put("F",edgesVertexF);
+		edgeMap.put("G",edgesVertexG);
+
+		ConcurrentHashMap<String, Vertex> vertexMap = GraphUtility.getVertexMap(verticeValues);
+		graphInstance.createGraph(vertexMap, edgeMap);
+		String[] vertices = {"A","B","C","D","E","F","G"};
+		List<String> verticesList = Arrays.asList(vertices);
+		Assert.assertTrue(graphInstance.isCyclic());
+	}
+	
+	@Test
+	public void testIsCyclicComplexLongCycleSuccess() {
+		String[] verticeValues = {"A","B","C","D","E","F","G"};
+		String[] edgesVertexA = {"B"};
+		String[] edgesVertexB = {"C"};
+		String[] edgesVertexC = {"D"};
+		String[] edgesVertexD = {"E"};
+		String[] edgesVertexE = {"F",};
+		String[] edgesVertexF = {"G"};
+		String[] edgesVertexG = {"A"};
+		
+		ConcurrentHashMap<String,String[]> edgeMap = (ConcurrentHashMap<String, String[]>) new ConcurrentHashMap();
+		edgeMap.put("A", edgesVertexA);
+		edgeMap.put("B",edgesVertexB);
+		edgeMap.put("C",edgesVertexC);
+		edgeMap.put("D",edgesVertexD);
+		edgeMap.put("E",edgesVertexE);
+		edgeMap.put("F",edgesVertexF);
+		edgeMap.put("G",edgesVertexG);
+
+		ConcurrentHashMap<String, Vertex> vertexMap = GraphUtility.getVertexMap(verticeValues);
+		graphInstance.createGraph(vertexMap, edgeMap);
+		String[] vertices = {"A","B","C","D","E","F","G"};
+		List<String> verticesList = Arrays.asList(vertices);
+		Assert.assertTrue(graphInstance.isCyclic());
+	}
 }

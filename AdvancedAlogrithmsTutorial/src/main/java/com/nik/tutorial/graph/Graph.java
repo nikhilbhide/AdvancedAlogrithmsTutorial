@@ -5,6 +5,7 @@ import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import java.util.Stack;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -93,7 +94,7 @@ public class Graph {
 	public void traverseDFS(Vertex currentVertex, LinkedHashSet<String> visited, LinkedHashSet<String> result) {
 		List<Vertex> neighboringVertices = currentVertex.getVertices();
 		visited.add(currentVertex.getName());
-		
+
 		for(Vertex vertex:neighboringVertices) {
 			if(!visited.contains(vertex.getName())) {
 				traverseDFS(vertex,visited,result);
@@ -116,5 +117,28 @@ public class Graph {
 			traverseDFS(vertex,visited,result);
 		}
 		return result;
+	}
+
+	public boolean detectCycles(Vertex currentVertex, Stack<String> visited, LinkedHashSet<String> result) {
+		List<Vertex> neighboringVertices = currentVertex.getVertices();
+		visited.push(currentVertex.getName());
+
+		for(Vertex vertex:neighboringVertices) {
+			if(!visited.contains(vertex.getName())) {
+				if(!result.contains(currentVertex.getName())) {
+					return detectCycles(vertex,visited,result);
+				}
+			}
+			else {
+				return true;				
+			}
+		}
+		visited.pop();
+		result.add(currentVertex.getName());
+		return false;
+	}
+
+	public boolean isCyclic() {
+		return detectCycles(vertexMap.get("A"), new Stack<String>(),new LinkedHashSet<String>());
 	}
 }
