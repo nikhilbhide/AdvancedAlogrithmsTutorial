@@ -82,7 +82,7 @@ public class DijkstrasAlgorithm {
 	/**
 	 * Distances for each of the vertex are not calculated then it calculates the distances.
 	 * 
-	 * @param queue This is priority queue which is based on min heap
+	 * @param queue The priority queue based on minimum heap
 	 */
 	public void getShortestPath(PriorityQueue<Vertex> queue) {
 		Vertex currentVertex = queue.remove();
