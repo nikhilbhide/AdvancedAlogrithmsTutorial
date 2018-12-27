@@ -23,7 +23,7 @@ public class BellmanFordTest {
 		instance = null;
 	}
 
-//	@Test
+	@Test
 	public void testBellmanFordSimpleGraphWithPositiveEdges() {
 		Vertex v1 = new Vertex("A");
 		Vertex v2 = new Vertex("B");
@@ -51,7 +51,7 @@ public class BellmanFordTest {
 		Assert.assertTrue(Arrays.deepEquals(traversalPath, instance.getShortestPath("A","D").toArray()));
 	}
 
-//	@Test
+	@Test
 	public void testBellmanFordSimpleGraphWithNegativeEdges() {
 		Vertex v1 = new Vertex("A");
 		Vertex v2 = new Vertex("B");
@@ -81,7 +81,7 @@ public class BellmanFordTest {
 		Assert.assertTrue(v4.getDistance()==2);
 	}
 	
-	//@Test (expected=IllegalArgumentException.class)
+	@Test (expected=IllegalArgumentException.class)
 	public void testBellmanFordSimpleGraphConsistingCycleSuccess() {
 		Vertex v1 = new Vertex("A");
 		Vertex v2 = new Vertex("B");
