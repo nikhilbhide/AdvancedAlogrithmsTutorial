@@ -9,3 +9,4 @@ As of now, following algorithms are implemented
 6. Dijkstra's algorithm - Shortest path in graph algorithm 
 7. Bellman Ford algorithm - Dijkstra's algorithm can not handle negative edge weights. In this case, Bellman Ford algorithm comes handy.
 A graph having negative weights is used in stock market, forex arbitrage, chemical reaction.
+8. Longest Path Traversal - Bellman Ford algorithm is used to find longest path in the graph. One change is required that is to negate the weights. 
