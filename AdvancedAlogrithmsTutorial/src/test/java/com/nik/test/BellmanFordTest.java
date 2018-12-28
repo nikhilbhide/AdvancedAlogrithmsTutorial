@@ -155,4 +155,35 @@ public class BellmanFordTest {
 		String[] traversalPath = {v1.getName(),v3.getName(),v7.getName(),v2.getName(),v4.getName(),v6.getName()};
 		Assert.assertTrue(Arrays.deepEquals(traversalPath, instance.getShortestPath("A","F").toArray()));
 	}
+	
+
+	@Test
+	public void testBellmanFordSimpleGraphForLongestPathSuccess() {
+		Vertex v1 = new Vertex("A");
+		Vertex v2 = new Vertex("B");
+		Vertex v3 = new Vertex("C");
+		Vertex v4 = new Vertex("D");
+		instance.getVertexMap().put("A", v1);
+		instance.getVertexMap().put("B", v2);
+		instance.getVertexMap().put("C", v3);
+		instance.getVertexMap().put("D", v4);
+
+
+		Edge e1 = new Edge(v1, v2, 3);
+		Edge e2 = new Edge(v2, v3, 2);
+		Edge e3 = new Edge(v3, v4, 1);
+		Edge e4 = new Edge(v2, v4, 4);
+		
+		List<Edge> edgeList = new ArrayList();
+		edgeList.add(e1);
+		edgeList.add(e2);
+		edgeList.add(e3);
+		edgeList.add(e4);
+		
+		instance.setEdgeList(edgeList);
+
+		String[] traversalPath = {v1.getName(),v2.getName(),v4.getName()};
+		Assert.assertTrue(Arrays.deepEquals(traversalPath, instance.getLongestPath("A","D").toArray()));
+		Assert.assertTrue(Math.abs(v4.getDistance())==7);
+	}
 }
