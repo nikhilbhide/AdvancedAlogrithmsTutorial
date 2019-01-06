@@ -2,8 +2,6 @@ package com.nik.tutorial.graph.mst;
 
 import java.util.List;
 
-import com.nik.tutorial.graph.shortestpath.Edge;
-
 /**
  * This class represents Vertex in a graph and its specifically tailored for minimum spanning tree.
  * 
