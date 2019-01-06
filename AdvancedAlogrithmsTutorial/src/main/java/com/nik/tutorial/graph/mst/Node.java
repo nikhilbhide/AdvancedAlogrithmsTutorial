@@ -1,5 +1,9 @@
 package com.nik.tutorial.graph.mst;
 
+import java.util.List;
+
+import com.nik.tutorial.graph.shortestpath.Edge;
+
 /**
  * This class represents Vertex in a graph and its specifically tailored for minimum spanning tree.
  * 
@@ -16,6 +20,18 @@ public class Node {
 
 	//This instance variable holds the data value
 	private int data;
+	
+	//This is a list of neighbours
+	private List<Edge> neighbours;
+
+
+	public List<Edge> getNeighbours() {
+		return neighbours;
+	}
+
+	public void setNeighbours(List<Edge> neighbours) {
+		this.neighbours = neighbours;
+	}
 
 	public Node(int data) {
 		this.parent = this;
@@ -44,9 +60,5 @@ public class Node {
 
 	public void setData(int data) {
 		this.data = data;
-	}
-
-	public Node() {
-
 	}
 }
