@@ -7,18 +7,18 @@ import com.nik.tutorial.graph.shortestpath.Vertex;
  * 
  * @author nikhil.bhide
  */
-public class Edge {
+public class Edge implements Comparable<Edge>{
 	private Vertex source;
 	private Vertex destination;
 	private double weight;
-	
+
 	public Edge(Vertex source, Vertex destination, double weight) {
 		super();
 		this.source = source;
 		this.destination = destination;
 		this.weight = weight;
 	}
-	
+
 	public Vertex getSource() {
 		return source;
 	}
@@ -36,5 +36,11 @@ public class Edge {
 	}
 	public void setWeight(double weight) {
 		this.weight = weight;
+
+	}
+
+	@Override
+	public int compareTo(Edge otherEdge) {
+		return Double.compare(this.getWeight(),otherEdge.getWeight());
 	}
 }
