@@ -18,10 +18,17 @@ public class Node {
 
 	//This instance variable holds the data value
 	private int data;
-	
+
 	//This is a list of neighbours
 	private List<Edge> neighbours;
 
+	//This variable refers to the name of the vertex
+	private String name;
+
+
+	public String getName() {
+		return name;
+	}
 
 	public List<Edge> getNeighbours() {
 		return neighbours;
@@ -58,5 +65,9 @@ public class Node {
 
 	public void setData(int data) {
 		this.data = data;
+	}
+
+	public Node(String name) {
+		this.name = name;
 	}
 }

@@ -89,7 +89,7 @@ public class DisjointSets {
 		HashSet<Node> nodeSet = disjointSetsByRepresentativeMap.get(String.valueOf(formerRepNode.getData()));
 		
 		disjointSetsByRepresentativeMap.get(String.valueOf(newRepNode.getData())).add(formerRepNode);
-		
+		formerRepNode.setParent(newRepNode);
 		for(Node node:nodeSet) {
 			node.setParent(newRepNode);
 			disjointSetsByNodeMap.put(String.valueOf(String.valueOf(node.getData())),String.valueOf(newRepNode.getData()));
@@ -106,7 +106,7 @@ public class DisjointSets {
 	 * 
 	 * @return The parent node of given node by finding out the parent node
 	 */
-	private Node findSet(Node node) {
+	public Node findSet(Node node) {
 		if(node.getParent()==node) {
 			return node;
 		}
