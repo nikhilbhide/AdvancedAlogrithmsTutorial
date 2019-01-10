@@ -10,3 +10,8 @@ As of now, following algorithms are implemented
 7. Bellman Ford algorithm - Dijkstra's algorithm can not handle negative edge weights. In this case, Bellman Ford algorithm comes handy.
 A graph having negative weights is used in stock market, forex arbitrage, chemical reaction.
 8. Longest Path Traversal - Bellman Ford algorithm is used to find longest path in the graph. One change is required that is to negate the weights. 
+9. Kruskal's algorithm - Kruskal's algorithm generates MST from a given graph. MST is used heavily in applications such as routing, K means clustring, mobile tower placements, maps etc. It requires all edges in a sorted order. Its also known as lazy way to generate MST.
+Time complexity is O(ELOGV).
+10. Prim's algorithm - Like Kruskal's algorithm, Prim's algorithm generates MST from a given graph. It can start from any vertex. Its also called as eager way to generate MST. Time complexity is O(ELogV).
+11.Merge Sort - Merge sort is popular algorithm to sort the given data. It works on divide and conquer algorithm and its not in-place algorithm. Time complexity of this algorithm is O(nlogn).
+12.Quick Select - Quick select algorithm finds kth smallest element. Average time complexity is O(n) and worst case time complexy is O(n^2).
