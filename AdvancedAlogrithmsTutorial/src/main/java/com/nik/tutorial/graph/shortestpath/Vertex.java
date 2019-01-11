@@ -1,5 +1,6 @@
 package com.nik.tutorial.graph.shortestpath;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,6 +19,7 @@ public class Vertex implements Comparable<Vertex> {
 	
 	public Vertex(String name) {
 		super();
+		neightbours = new ArrayList();
 		this.name = name;
 	}
 	public String getName() {
