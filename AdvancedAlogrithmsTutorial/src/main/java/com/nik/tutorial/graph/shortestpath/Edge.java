@@ -1,5 +1,7 @@
 package com.nik.tutorial.graph.shortestpath;
 
+import java.io.Serializable;
+
 import com.nik.tutorial.graph.shortestpath.Vertex;
 
 /**
@@ -7,7 +9,7 @@ import com.nik.tutorial.graph.shortestpath.Vertex;
  * 
  * @author nikhil.bhide
  */
-public class Edge implements Comparable<Edge>{
+public class Edge implements Comparable<Edge>, Serializable {
 	private Vertex source;
 	private Vertex destination;
 	private double weight;

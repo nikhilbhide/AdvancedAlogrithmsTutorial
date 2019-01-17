@@ -1,5 +1,6 @@
 package com.nik.tutorial.graph.shortestpath;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +11,7 @@ import java.util.List;
  *
  */
 
-public class Vertex implements Comparable<Vertex> {
+public class Vertex implements Comparable<Vertex>, Serializable {
 	private String name;
 	private List<Edge> neightbours;
 	private boolean visited;
