@@ -19,3 +19,4 @@ Time complexity is O(ELOGV).
 14. Insertion sorting - Implementation of insertion sorting in which a element is compared with all of the elements on the left.
 And swap the elements whenever order is breached.
 15.Kosarajus Algorithm - Solution to strongly connected components.
+16. Cutting Rod - Dynamic programming solution to cutting rod problem. A rod with length n is divided into different lengths. And each length is associated with price. So solution is to consider 
