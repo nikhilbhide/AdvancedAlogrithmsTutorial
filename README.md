@@ -20,3 +20,4 @@ Time complexity is O(ELOGV).
 And swap the elements whenever order is breached.
 15.Kosarajus Algorithm - Solution to strongly connected components.
 16. Cutting Rod - Dynamic programming solution to cutting rod problem. A rod with length n is divided into different lengths. And each length is associated with price. So solution is to consider 
+17. Trie Data Structure - Implementation of trie data structure - insert, delete, search operations
