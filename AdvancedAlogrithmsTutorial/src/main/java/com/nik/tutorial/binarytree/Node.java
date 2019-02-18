@@ -1,5 +1,12 @@
 package com.nik.tutorial.binarytree;
 
+/**
+ * Represents node entity of the binary tree
+ * A node may have left child and a right child
+ * 
+ * @author nikhil.bhide
+ *
+ */
 public class Node {
 	private int value;
 	private Node leftChild;
