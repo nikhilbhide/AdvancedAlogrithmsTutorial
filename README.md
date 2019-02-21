@@ -22,3 +22,5 @@ And swap the elements whenever order is breached.
 16. Cutting Rod - Dynamic programming solution to cutting rod problem. A rod with length n is divided into different lengths. And each length is associated with price. So solution is to consider 
 17. Trie Data Structure - Implementation of trie data structure - insert, delete, search operations
 18. Binary search tree - Check whether the given binary tree is a valid binary search tree.
+19. Segment Tree - Segment Tree is a basically a binary tree used for storing the intervals or segments. Each node in the Segment Tree represents an interval. Segment Tree is used in cases where there are multiple range queries on array and modifications of elements of the same array.
+20. Binary Tree Spiral Traversal - Spiral traversal of nodes of binary tree using two stacks
