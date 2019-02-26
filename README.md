@@ -24,3 +24,7 @@ And swap the elements whenever order is breached.
 18. Binary search tree - Check whether the given binary tree is a valid binary search tree.
 19. Segment Tree - Segment Tree is a basically a binary tree used for storing the intervals or segments. Each node in the Segment Tree represents an interval. Segment Tree is used in cases where there are multiple range queries on array and modifications of elements of the same array.
 20. Binary Tree Spiral Traversal - Spiral traversal of nodes of binary tree using two stacks
+21. Fenwick tree - Fenwick tree is also known as Binary Index Tree. Fenwick Tree provides a way to represent an array of numbers in an array, allowing prefix sums to be calculated efficiently.
+22. Inorder traversal of a Binary Tree using Morris Code - Inorder traversal of a binary tree using morris code
+ * This does not require stack or recursive approach.
+
